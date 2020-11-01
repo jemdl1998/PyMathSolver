@@ -1,0 +1,76 @@
+#    This file is part of PyMathSolver.
+
+#    PyMathSolver is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    PyMathSolver is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
+
+
+#:import resultScreen UIpy.resultScreen.resultScreen
+
+<nonLinearScreen>:
+    
+    BoxLayout:
+        canvas:
+            Color: 
+                rgba:1,1,0.8,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        FloatLayout:
+            #Top buttons
+            id: flayout
+            StackLayout:
+                size_hint_y: 0.05
+                pos_hint: {'y':0.95}
+                Button:
+                    on_press: app.backButton()
+                    size_hint_x: 0.04
+                    background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+                    canvas.before:
+                        Rectangle:
+                            id:rct
+                            source: 'PyMath/assets/UI/backarrow.png'
+                            pos: self.pos
+                            size: self.size
+            
+                Button:
+
+                    on_press: ti.clasificateLines(labelStatus),app.solveButton(ti.code)
+                    on_release: app.sm.current = ('Results')
+                    
+                    size_hint_x: 0.04
+                    background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+                    canvas.before:
+                        Rectangle:
+                            id:rct
+                            source: 'PyMath/assets/UI/backarrow.png'
+                            pos: self.pos
+                            size: self.size
+            
+            NonLinearInput:
+                id: ti
+                pos_hint: {'y':0.05}
+                size_hint_y: 0.90
+                color: 0,0,0,1
+                font_size: "20sp"
+                focus: True
+                hint_text: 'Code here...'
+
+            Label:
+                id:labelStatus
+                text: 'Fine'
+                color: 0,0,0,1
+                halign: 'center'
+                pos_hint: {'x':0,'y':-.48}
+                markup: True
+            
+

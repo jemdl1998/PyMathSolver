@@ -1,0 +1,74 @@
+#    This file is part of PyMathSolver.
+
+#    PyMathSolver is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    PyMathSolver is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
+
+
+<homeScreen>:
+    
+    BoxLayout:
+        canvas:
+            
+            Rectangle:
+                source: './assets/fill.jpg'
+                size: self.size
+                pos: self.pos
+        FloatLayout: 
+            BoxLayout:
+                pos_hint: {'y':0.4,'x':0}
+                size_hint: 1,0.3
+                Button:
+                    size_hint_x:0.12
+                    background_normal: './assets/nolinear-unpressed.jpg'
+                    
+                    on_press: app.nonLinearWindow()
+                Button:
+                    size_hint_x:0.12
+                    background_normal: './assets/ODE-unpressed.jpg'
+                   
+                    #on_press: app.differentialWindow()
+                Button:
+                    size_hint_x:0.12
+                    background_normal: './assets/linealSystem-unpressed.jpg'
+                    
+                    #on_press: app.linearWindow()
+                Button:
+                    size_hint_x:0.12
+                    background_normal: './assets/analyss-unpressed.jpg'
+                    
+                    #on_press: app.regressionWindow()
+            Label: 
+                text: 'New program'
+                color: 0,0,0,1
+                pos_hint: {'x':0,'y':0.2}
+                halign: 'center'
+            Label: 
+                text: 'Non-Linear\nEquations'
+                color: 0,0,0,1
+                halign: 'center'
+                pos_hint: {'x':-0.37,'y':-0.1}
+            Label: 
+                text: 'Differential\nEquations'
+                color: 0,0,0,1
+                pos_hint: {'x':-0.13,'y':-0.1}
+                halign: 'center'
+            Label: 
+                text: 'Linear\nEquations'
+                color: 0,0,0,1
+                pos_hint: {'x':0.13,'y':-0.1}
+                halign: 'center'
+            Label: 
+                text: 'Data\nRegression'
+                color: 0,0,0,1
+                pos_hint: {'x':0.37,'y':-0.1}
+                halign: 'center'

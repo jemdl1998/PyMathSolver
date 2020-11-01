@@ -1,0 +1,8 @@
+*.egg-info/
+*.pyc
+/local/
+/lib/
+/dist/
+/include/
+/build/
+/UIpy/test.py
