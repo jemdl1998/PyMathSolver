@@ -15,6 +15,6 @@
 
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
-Builder.load_file('PyMath/UIpy/UIkv/resultScreen.kv')
+Builder.load_file('./UIpy/UIkv/resultScreen.kv')
 class resultScreen(Screen):
     pass

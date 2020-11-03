@@ -17,58 +17,44 @@
 <homeScreen>:
     
     BoxLayout:
+        orientation: 'vertical'
         canvas:
-            
-            Rectangle:
-                source: './assets/fill.jpg'
+            Color:
+                hsv: .3,.1,.99
+            Rectangle: 
                 size: self.size
                 pos: self.pos
-        FloatLayout: 
+        BoxLayout:     
+            orientation: 'vertical'
+            size_hint: 1,1
+            StackLayout:
+                size_hint:1,0.2
+                Button:
+                    text: 'Aqui ira una barra de herramientas'
+            Label:
+                markup: True
+                text: '[b][color=50d67c]New Program[/color][/b]'
+                size: 
+
             BoxLayout:
-                pos_hint: {'y':0.4,'x':0}
-                size_hint: 1,0.3
-                Button:
-                    size_hint_x:0.12
-                    background_normal: './assets/nolinear-unpressed.jpg'
-                    
-                    on_press: app.nonLinearWindow()
-                Button:
-                    size_hint_x:0.12
-                    background_normal: './assets/ODE-unpressed.jpg'
-                   
-                    #on_press: app.differentialWindow()
-                Button:
-                    size_hint_x:0.12
-                    background_normal: './assets/linealSystem-unpressed.jpg'
-                    
-                    #on_press: app.linearWindow()
-                Button:
-                    size_hint_x:0.12
-                    background_normal: './assets/analyss-unpressed.jpg'
-                    
-                    #on_press: app.regressionWindow()
-            Label: 
-                text: 'New program'
-                color: 0,0,0,1
-                pos_hint: {'x':0,'y':0.2}
-                halign: 'center'
-            Label: 
-                text: 'Non-Linear\nEquations'
-                color: 0,0,0,1
-                halign: 'center'
-                pos_hint: {'x':-0.37,'y':-0.1}
-            Label: 
-                text: 'Differential\nEquations'
-                color: 0,0,0,1
-                pos_hint: {'x':-0.13,'y':-0.1}
-                halign: 'center'
-            Label: 
-                text: 'Linear\nEquations'
-                color: 0,0,0,1
-                pos_hint: {'x':0.13,'y':-0.1}
-                halign: 'center'
-            Label: 
-                text: 'Data\nRegression'
-                color: 0,0,0,1
-                pos_hint: {'x':0.37,'y':-0.1}
-                halign: 'center'
+                orientation: 'horizontal'
+                spacing: 10
+                padding:10
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 10
+                    Button:
+                        text: 'Non-Linear Solver'
+                        on_press: app.nonLinearWindow()
+                    Button:
+                        text: 'ODE Solver'
+                BoxLayout:
+                    spacing:10
+                    orientation: 'vertical'
+                    Button:
+                        text: 'Lineal System Solver'
+                        #on_press: app.linearWindow()
+                    Button:
+                        text: 'Analysis'
+                        #on_press: app.regressionWindow()
+            
